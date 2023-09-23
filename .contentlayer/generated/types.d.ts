@@ -21,32 +21,16 @@ export type Post = {
   slug?: string | undefined
   id?: number | undefined
   image?: string | undefined
-  draft: string
-  tags?: Tag[] | undefined
-  categories?: Categories[] | undefined
+  draft: boolean
+  tags?: string[] | undefined
+  categories?: string[] | undefined
   /** Markdown file body */
   body: Markdown
   slug: string
 }  
 
 /** Nested types */
-export type Categories = {
-  /** File path relative to `contentDirPath` */
-  _id: string
-  _raw: Local.RawDocumentData
-  type: 'Categories'
-  title?: string | undefined
-
-}
-
-export type Tag = {
-  /** File path relative to `contentDirPath` */
-  _id: string
-  _raw: Local.RawDocumentData
-  type: 'Tag'
-  title?: string | undefined
-
-}  
+  
 
 /** Helper types */
 
@@ -56,8 +40,8 @@ export type AllTypeNames = DocumentTypeNames | NestedTypeNames
 export type DocumentTypes = Post
 export type DocumentTypeNames = 'Post'
 
-export type NestedTypes = Categories | Tag
-export type NestedTypeNames = 'Categories' | 'Tag'
+export type NestedTypes = never
+export type NestedTypeNames = never
 
 
 export interface ContentlayerGenTypes {
@@ -79,8 +63,7 @@ export type DocumentTypeMap = {
 }
 
 export type NestedTypeMap = {
-  Categories: Categories
-  Tag: Tag
+
 }
 
  
